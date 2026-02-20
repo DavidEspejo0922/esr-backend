@@ -17,8 +17,8 @@ export default defineConfig({
     workerMode: (process.env.MEDUSA_WORKER_MODE as "shared" | "worker" | "server") || "shared",
   },
   admin: {
+    disable: process.env.DISABLE_ADMIN === "true",
     backendUrl: process.env.MEDUSA_BACKEND_URL || "http://localhost:9001",
-    // Admin UI is served by Medusa in dev, separate build for production
   },
   modules: [
     // Custom modules
@@ -43,9 +43,7 @@ export default defineConfig({
     {
       resolve: "@medusajs/medusa/workflow-engine-redis",
       options: {
-        redis: {
-          url: process.env.REDIS_URL,
-        },
+        redisUrl: process.env.REDIS_URL,
       },
     },
     // DLocal payment provider
