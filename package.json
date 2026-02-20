@@ -1,0 +1,31 @@
+{
+  "name": "@esr/medusa",
+  "version": "0.1.0",
+  "private": true,
+  "description": "ESR Colombia - Medusa v2 Commerce Engine",
+  "scripts": {
+    "dev": "medusa develop",
+    "start": "medusa start",
+    "build": "medusa build",
+    "seed": "medusa exec ./src/scripts/seed.ts",
+    "db:migrate": "medusa db:migrate",
+    "db:generate": "medusa db:generate",
+    "db:sync-links": "medusa db:sync-links",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@medusajs/admin-sdk": "^2.0.0",
+    "@medusajs/framework": "^2.0.0",
+    "@medusajs/medusa": "^2.0.0",
+    "cloudinary": "^2.9.0",
+    "meilisearch": "^0.44.0",
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "@medusajs/types": "^2.0.0",
+    "@types/node": "^22.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.0",
+    "vitest": "^2.0.0"
+  }
+}

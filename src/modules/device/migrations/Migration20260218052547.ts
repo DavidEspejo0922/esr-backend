@@ -1,0 +1,21 @@
+import { Migration } from "@medusajs/framework/mikro-orm/migrations";
+
+export class Migration20260218052547 extends Migration {
+
+  override async up(): Promise<void> {
+    this.addSql(`alter table if exists "device_brand" add column if not exists "translations" jsonb null;`);
+
+    this.addSql(`alter table if exists "device_series" add column if not exists "translations" jsonb null;`);
+
+    this.addSql(`alter table if exists "device_model" add column if not exists "translations" jsonb null;`);
+  }
+
+  override async down(): Promise<void> {
+    this.addSql(`alter table if exists "device_brand" drop column if exists "translations";`);
+
+    this.addSql(`alter table if exists "device_series" drop column if exists "translations";`);
+
+    this.addSql(`alter table if exists "device_model" drop column if exists "translations";`);
+  }
+
+}
